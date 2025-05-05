@@ -1,0 +1,152 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 15%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 21% 20%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 21% 20%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 242 83% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 20% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 20% 25%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 242 83% 68%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 60.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 20% 30%;
+    --input: 240 20% 30%;
+    --ring: 240 20% 50%;
+
+    --radius: 0.75rem;
+    
+    --sidebar-background: 240 20% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 242 83% 68%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 20% 25%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 20% 30%;
+    --sidebar-ring: 240 20% 50%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 242 83% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 242 83% 68%;
+    
+    --sidebar-background: 240 20% 97%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 242 83% 68%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 242 83% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/20 border border-white/10;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-card to-secondary/80 backdrop-blur-sm;
+  }
+  
+  .section-padding {
+    @apply py-4 px-6 md:px-8 lg:px-10;
+  }
+}
+
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.data-card {
+  @apply rounded-xl p-4 shadow-lg transition-all duration-300 hover:shadow-xl;
+}
+
+.chart-container {
+  @apply rounded-xl p-4 bg-card shadow-lg;
+}
+
+/* Animation classes */
+.animate-fade {
+  @apply animate-fade-in;
+}
+
+.animate-scale {
+  @apply animate-scale-in;
+}
+
+.animate-slide {
+  @apply animate-slide-in;
+}
+
+/* Fixed circular dependency by directly using the animation properties */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
